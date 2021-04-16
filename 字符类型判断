@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+	char cl;
+	
+	printf("请输入一个字符：");
+	cl =getchar();
+	if (cl < 32)
+	{
+		printf("控制字符\n");
+	}
+	else if (cl >= '0' && cl <= '9')
+	{
+		printf("数字\n");
+	}
+	else if (cl>='A'&&cl<='Z')
+	{
+		printf("大写字母\n");
+	}
+	else if (cl >= 'a' && cl <= 'z')
+	{
+		printf("小写字母\n");
+	}
+	else
+	{
+		printf("其他字符\n");
+	}
+	system("pause");
+	return 0;
+}
