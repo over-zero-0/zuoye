@@ -1,0 +1,54 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+void SelectSort(int a[], int n);
+
+#define N 100
+
+int main(void)
+{
+	int array[N]; int len;
+	
+	printf("元素个数:");
+	scanf_s("%d", &len);
+	
+	printf("输入你的数：");
+	for (int i = 0; i < len; i++)
+	{
+		scanf_s("%d", &array[i]);
+	}
+	
+	SelectSort(array, len);
+
+	for (int i = 0; i < len; i++)
+	{
+		printf("%d ", array[i]);
+	}
+	printf("\n");
+了
+	system("pause");
+	return 0;
+}
+//升序
+void SelectSort(int a[], int n) 
+{
+	int i, j, min, temp;
+	for (i = 0; i < n - 1; i++) 
+	{
+		min = i;
+		for (j = i + 1; j < n; j++) 
+		{
+			if (a[j] < a[min])
+			{
+				min = j;
+			}
+		}
+		if (min != i)
+		{
+		
+			temp = a[i];
+			a[i] = a[min];
+			a[min] = temp;
+		}
+	}
+}
