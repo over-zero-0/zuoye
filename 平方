@@ -1,0 +1,24 @@
+#include<stdio.h>//头文件
+#include<stdlib.h>
+#include<math.h>
+int main(void)
+{
+	double m;//双精度的浮点数
+	printf("请输入一个数值\n");
+	scanf_s("%lf", &m);
+	double n = sqrt(m);//将传入的数进行求平方根的运算，
+	printf("他的平方根为%lf\n", n);
+	double a;
+	printf("请再输入一个非0整数\n");
+	scanf_s("%lf", &a);
+	printf("倒数为%lf\n", 1 / a);
+	int c, d;
+	printf("请再输入两个整数\n");
+	scanf_s("%d%d", &c, &d);
+	int e = pow(c, d);
+	
+	//但是他需要用math.h函数
+	printf("幂次方的结果为%d\n", e);
+	system("pause");//getchar也行
+	return 0;//程序正常运行要返回一个0
+}
