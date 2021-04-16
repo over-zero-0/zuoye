@@ -1,0 +1,60 @@
+
+
+#include<stdio.h>
+#include<stdlib.h>
+
+void QuickSort(int a[], int left, int right);
+
+#define N 100
+//布尔变量
+
+
+
+int main(void)
+{
+	//定义数组并要求用户输入数组长度
+	int array[N]; int len;
+	//要求用户输入有几个数
+	printf("元素个数:");
+	scanf_s("%d", &len);
+	//要求用户输入需要排序的数组
+	printf("输入你的数：");
+	for (int i = 0; i < len; i++)
+	{
+		scanf_s("%d", &array[i]);
+	}
+	
+	QuickSort(array, 0, len);
+	
+	for(int i=0;i<len;i++)
+	{
+		printf("%d ",array[i]);
+	}
+	printf("\n");
+	
+	system("pause");
+	return 0;
+}
+
+//快排
+void QuickSort(int a[], int left, int right) {
+	if (left < right)
+	{
+		int i = left, j = right;
+		int base = a[left];             
+		while (i < j) 
+		{
+			while (i < j && a[j] >= base)    //从右往左找小于base的元素
+				j--;
+			if (i < j)
+				a[i++] = a[j];
+			while (i < j && a[i] < base)    //从左往右找大于base的值
+				i++;
+			if (i < j)
+				a[j--] = a[i];
+		}
+		a[i] = base;                  //填入最后的坑中
+		QuickSort(a, left, i - 1);      //递归调用
+		QuickSort(a, i + 1, right);
+	}
+}
