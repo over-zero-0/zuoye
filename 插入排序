@@ -1,0 +1,64 @@
+
+
+#include<stdio.h>
+#include<stdlib.h>
+
+void InsertSort1(int a[], int n);
+
+void InsertSort2(int a[], int n);
+void Swap(int a, int b);
+
+#define N 100//宏定义
+
+int main(void)
+{
+    
+	int array[N]; int len; int userCh;
+	//要求用户输入有几个数
+	printf("元素个数:");
+	scanf_s("%d", &len);
+	
+	printf("输入你的数：");
+	for (int i = 0; i < len; i++)
+	{
+		scanf_s("%d", &array[i]);
+	}
+	printf("随机选择一种方法（输入1或2，再按下回车）：");
+	scanf_s("%d", &userCh);
+
+	switch (userCh)
+	{
+	case 1:InsertSort1(array, len); break;
+	case 2:InsertSort2(array, len); break;
+	default:printf("???\n");
+		break;
+	}
+	//输出排序的结果
+	for (int i = 0; i < len; i++)
+	{
+		printf("%d ", array[i]);
+	}
+	printf("\n");
+	
+	system("pause");
+	return 0;
+}
+
+
+void InsertSort1(int a[], int n)
+{
+	int i, j;
+	for (i = 1; i < n; i++)
+	{
+		if (a[i] < a[i - 1])
+		{
+			int temp = a[i];                               //保存要比较的值
+			for (j = i - 1; j >= 0 && a[j] > temp; j--)    //从后向前查找待插入位置
+			{
+				a[j + 1] = a[j];
+			}                                             //挪位
+			a[j + 1] = temp;                              //复制到插入位置
+		}
+	}
+}
+
