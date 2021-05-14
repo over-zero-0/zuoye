@@ -1,0 +1,44 @@
+#include<stdio.h>//标准的输入输出流
+#include<stdlib.h>//system("pause")要用
+void swap(int*, int*);//交换两个数的函数实现的原型
+int main(void)
+{
+	int a;
+  int b;
+	printf("请输入要交换的整数a,b:\n");
+	scanf_s("%d%d", &a, &b);
+	swap(&a, &b);
+	printf("交换后的数为%d   %d", a, b);
+	system("pause");
+	return 0;
+}
+void swap(int* a, int* b)
+{
+	int t = 0;
+	t = *a;
+	*a = *b;
+	*b = t;
+}
+#include<stdio.h>
+#include<stdlib.h>//system("pause")
+void change(int* a, int* b);//交换两个数的函数实现的原型
+int main(void)
+{
+	int a, b;
+	printf("请输入两个整数\n");
+	scanf_s("%d", &a);//将两个整数读入到缓存区中去
+	scanf_s("%d", &b);
+	change(&a, &b);
+	
+	printf("交换后的整数为%d%d", a, b);
+	system("pause");
+	return 0;
+}
+void change(int* a, int* b)
+{
+	int t = 0;
+	t = *a;//t作为临时变量，用于交换两个数的值
+	//注意要交换的数是上面类型的，那么你的临时变量就应该是什么类型的
+	*a = *b;
+	*b = t;
+}
